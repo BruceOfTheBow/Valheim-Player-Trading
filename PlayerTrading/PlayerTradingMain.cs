@@ -39,9 +39,13 @@ namespace PlayerTrading
         ALT,
     }
 
-    [BepInPlugin("projjm.playerTrading", "Player Trading", "1.2.1")]
+    [BepInPlugin(PluginGuid, PluginName, PluginVersion)]
     public class PlayerTradingMain : BaseUnityPlugin
     {
+        public const string PluginGuid = "projjm.playerTrading";
+        public const string PluginName = "Player Trading";
+        public const string PluginVersion = "1.2.3";
+
         internal static ConfigEntry<bool>? ServerConfigLocked = null!;
         public static ConfigEntry<bool>? UseModifierKey;
         public static ConfigEntry<KeyCode>? ModifierKey;
@@ -53,7 +57,7 @@ namespace PlayerTrading
         public static StringLocalization? Localization;
         private const string LocalizationFileName = "PlayerTradingStrings.txt";
         ConfigSync configSync = new("projjm.playerTrading") 
-            { DisplayName = "Player Trading", CurrentVersion = "1.2.1", MinimumRequiredVersion = "1.2.1"};
+            { DisplayName = "Player Trading", CurrentVersion = "1.2.3", MinimumRequiredVersion = "1.2.3"};
         internal readonly Harmony harmony = new Harmony("projjm.playerTrading");
         internal Assembly? assembly;
         internal static event Action? OnLocalPlayerChanged;
