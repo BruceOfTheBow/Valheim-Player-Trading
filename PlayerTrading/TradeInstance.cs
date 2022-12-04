@@ -157,7 +157,7 @@ namespace PlayerTrading
         private bool CanItemsFit()
         {
             Inventory playerInv = _localPlayer!.GetInventory();
-            Inventory fakeInv = new Inventory("CHECK", null, playerInv.GetWidth(), playerInv.GetHeight());
+            Inventory fakeInv = new Inventory(playerInv.m_name, null, playerInv.GetWidth(), playerInv.GetHeight());
 
             playerInv.m_inventory.ForEach(item => fakeInv.AddItem(item.Clone()));
 
