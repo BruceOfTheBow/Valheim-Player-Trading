@@ -196,8 +196,8 @@ namespace PlayerTrading.Patches
 						__instance.SetupDragItem(null, null, 1);
 						return false;
 					}
-					localPlayer.RemoveEquipAction(item);
-					localPlayer.RemoveEquipAction(__instance.m_dragItem);
+					localPlayer.RemoveFromEquipQueue(item);
+					localPlayer.RemoveFromEquipQueue(__instance.m_dragItem);
 					localPlayer.UnequipItem(__instance.m_dragItem, triggerEquipEffects: false);
 					localPlayer.UnequipItem(item, triggerEquipEffects: false);
 					bool num = grid.DropItem(__instance.m_dragInventory, __instance.m_dragItem, __instance.m_dragAmount, pos);
@@ -249,7 +249,7 @@ namespace PlayerTrading.Patches
 								return false;
 							}
 
-							localPlayer.RemoveEquipAction(item);
+							localPlayer.RemoveFromEquipQueue(item);
 							localPlayer.UnequipItem(item);
 							if (grid.GetInventory() == inv)
 							{
